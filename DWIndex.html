@@ -14,8 +14,11 @@ PROG3180-Sec2 Assignment1
     <script src="js/lib/jquery-2.1.4.js"></script>
     <!--        JQeuery Mobile      -->
     <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+
     <!--        Style sheet         -->
     <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 
     <link rel="shortcut icon" href="images/DW-icon.png">
 
@@ -24,8 +27,8 @@ PROG3180-Sec2 Assignment1
 <body>
 <!--page 1 HOMEPAGE-->
 <div id="DWHomePage" data-role="page" >
-    <header data-role="header" data-position="fixed" data-theme="b"  >
-        <h1>DW Feedback A1 App</h1>
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>A1 Feedback</h1></div>
         <div data-role="navbar">
             <ul >
                 <li><a href="#D WHomePage"  data-icon="home"  class="ui-btn-active ui-state-persist">Home</a></li>
@@ -44,21 +47,21 @@ PROG3180-Sec2 Assignment1
         <p>Contact me if you have any suggestions!</p>
 
         <!--Phone-->
-        <div data-role="collapsible" data-collapsed="true">
+        <div data-role="collapsible" data-collapsed="true" class="smallerFont">
             <h3>Call: 226-201-5555</h3>
             <a href="tel:226-201-5555">226-201-5555</a>
         </div>
 
         <!--email-->
 
-        <div data-role="collapsible" data-collapsed="true">
+        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
             <h3>dwagner6506@conestogac.on.ca</h3>
             <a href="mailto:dwagner6506@conestogac.on.ca?Subject=Hello%20David" target="_top">Send Mail</a>
         </div>
 
         <!--Website-->
         <p>Website:</p>
-        <div data-role="collapsible" data-collapsed="true">
+        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
             <h3>Conestoga College</h3>
             <a href="https://www.conestogac.on.ca/">Conestogac.on.ca</a>
         </div>
@@ -70,8 +73,8 @@ PROG3180-Sec2 Assignment1
 
 <!--page 2 FEEDBACK-->
 <div id="DWAddFeedBackPage" data-role="page">
-    <header data-role="header" data-position="fixed" data-theme="b" >
-        <h1>Add Feedback</h1>
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>Add Feedback</h1></div>
         <div data-role="navbar" >
             <ul>
                 <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
@@ -99,7 +102,7 @@ PROG3180-Sec2 Assignment1
             <input type="number" name="OveralRating" id="DWOverallRating" value="">
 
 
-            <input type="submit" name="Save" id="DWSave" value="Save">
+            <input type="submit" name="Save" id="DWSave" value="Save" data-theme="d" >
 
 
         </form>
@@ -114,8 +117,8 @@ PROG3180-Sec2 Assignment1
 
 <!--page 3 VIEW FEEDBACK PAGE-->
 <div id="DWViewFeedbackPage" data-role="page">
-    <header data-role="header" data-position="fixed" data-theme="b" >
-        <h1>Contact Page</h1>
+    <header data-role="header" data-position="fixed"  >
+        <div data-role="header" data-theme="b"><h1>View Feedback</h1></div>
         <div data-role="navbar" >
             <ul>
                 <li><a href="#DWHomePage" data-icon="home">Home</a></li>
@@ -126,22 +129,51 @@ PROG3180-Sec2 Assignment1
         </div>
     </header>
     <section data-role="content">
-        <ul data-role="listview" class="ui-listview-inset" data-split-icon="gear">
-            <li>
-                <a href="#">Item 1</a>
-            </li>
-            <li>
-                <a href="#">Item 2</a>
-                <a href="#"></a>
-            </li>
-            <li>
-                <a href="#">Item 3</a>
-                <a href="#"></a>
-            </li>
-            <li>
-                <a href="#">Item 4</a>
-                <a href="#"></a>
-            </li>
+        <ul data-role="listview" >
+
+            <a href="#DWEditFeedbackPage" data-role = "button">
+
+                <li>
+                    <h1 class="smallFont">Business Name:  <span class="title">420st Burger</span></h1>
+                    <p>
+                        <span class="smallFont">Reviewer Email:</span>
+
+                        <span class = "smallerFont"> cheechnchong@gmail.com</span>
+                    </p>
+                    <p>
+                        <span class="smallFont">Comments:</span>
+                        <span class = "smallerFont">Great burgers! Love it here</span>
+                    </p>
+                    <p>
+                        <span class="smallFont">Overall Rating:</span>
+                        <span class = "smallerFont">95%</span>
+                    </p>
+
+                </li>
+            </a>
+
+            <a href="#DWEditFeedbackPage" data-role = "button">
+                <li>
+
+                    <h1 class="smallFont">Business Name:  <span class="title"> Java Hut</span></h1>
+                    <p>
+                        <span class="smallFont">Reviewer Email:</span>
+
+                        <span class = "smallerFont"> billgates@microsoft.com</span>
+                    </p>
+                    <p>
+                        <span class="smallFont">Comments:</span>
+                        <span class = "smallerFont">worst..coffee...ever :/</span>
+                    </p>
+                    <p>
+                        <span class="smallFont">Overall Rating:</span>
+                        <span class = "smallerFont">10%</span>
+                    </p>
+                </li>
+            </a>
+
+
+
         </ul>
     </section>
     <footer data-role="footer" data-position="fixed" data-theme="b" >
@@ -151,22 +183,42 @@ PROG3180-Sec2 Assignment1
 
 <!--page 4 EDIT FEEDBACK-->
 <div id="DWEditFeedbackPage" data-role="page">
-    <header data-role="header" data-position="fixed" data-theme="b" >
-        <h1>Contact Page</h1 >
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>Modify Feedback</h1></div>
         <div data-role="navbar" >
             <ul>
                 <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
                 <li><a href="#DWAddFeedBackPage" data-icon="plus">Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid" class="ui-btn-active ui-state-persist">Reviews</a></li>
+                <li><a href="#DWViewFeedbackPage" data-icon="grid" class="ui-btn-active ui-state-persist">Edit Review</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
             </ul>
         </div>
     </header>
     <section data-role="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci architecto beatae cum
-            dignissimos doloribus eligendi illum inventore itaque labore laborum maiores minus necessitatibus,
-            nihil provident qui, quidem repellendus rerum sit tempora unde voluptatem voluptates. Blanditiis
-            dolorem et expedita similique! A dolore dolorem dolores iure libero nam unde vel, veniam?</p>
+        <form id="DWEditFeedbackForm" >
+
+            <label for="DWBusNameEdit">Business Name:</label>
+            <input type="text" name="BusName" id="DWBusNameEdit" value="">
+
+            <label for="DWRevEmailEdit">Reviewer Email:</label>
+            <input type="text" name="RevEmail" id="DWRevEmailEdit" value="">
+
+            <label for="DWRevCommentEdit">Reviewer Comments:</label>
+            <textarea name="RevComment" id="DWRevCommentEdit"></textarea>
+
+            <label for="DWOverallRatingEdit">Overall Rating (1-100):</label>
+            <input type="number" name="OveralRating" id="DWOverallRatingEdit" value="">
+
+
+            <fieldset data-role="controlgroup" data-type="horizontal" >
+                <input type = "reset" value="Cancel" data-theme="c"  id="DWCancel"/>
+                <input type = "button" value="Delete" data-theme="e"  id="DWDelete"/>
+                <input type = "submit"  value="Update" data-theme="d"   id="DWUpdate"/>
+
+            </fieldset>
+
+
+        </form>
     </section>
     <footer data-role="footer" data-position="fixed" data-theme="b" >
         <h4>&copy;2017 David Wagner</h4>
@@ -175,8 +227,8 @@ PROG3180-Sec2 Assignment1
 
 <!--page 5 SETTINGS PAGE-->
 <div id="DWSettingsPage" data-role="page">
-    <header data-role="header" data-position="fixed" data-theme="b" >
-        <h1>Contact Page</h1>
+    <header data-role="header" data-position="fixed"  >
+        <div data-role="header" data-theme="b"><h1>Settings</h1></div>
         <div data-role="navbar" >
             <ul>
                 <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
@@ -186,12 +238,19 @@ PROG3180-Sec2 Assignment1
             </ul>
         </div>
     </header>
-    <section data-role="content" data-position="fixed">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci architecto beatae cum
-            dignissimos doloribus eligendi illum inventore itaque labore laborum maiores minus necessitatibus,
-            nihil provident qui, quidem repellendus rerum sit tempora unde voluptatem voluptates. Blanditiis
-            dolorem et expedita similique! A dolore dolorem dolores iure libero nam unde vel, veniam?</p>
+    <section data-role="content">
+        <form id="DWSettingsForm">
+
+            <label for="DWDefaultRevEmail">Default Reviewer Email:</label>
+            <input type="text" name="DefaultEmail" id="DWDefaultRevEmail" value="">
+            <input type = "submit"  value="Save Defaults" data-theme="d"   id="DWSaveDefault"/>
+            <input type = "button" value="Delete" data-theme="b"  id="DWClearDB"/>
+
+
+
+        </form>
     </section>
+
     <footer data-role="footer" data-position="fixed" data-theme="b" >
         <h4>&copy;2017 David Wagner</h4>
     </footer>
