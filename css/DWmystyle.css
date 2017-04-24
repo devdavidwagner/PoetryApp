@@ -1,0 +1,95 @@
+#icon{
+
+    left-margin:50px;
+
+}
+
+#authorNameView{
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.poemName{
+
+
+
+    text-shadow: 2px 2px #000;
+    margin-left: 10px;
+
+    font-size: 200%;
+
+}
+
+#poemDate{
+    margin-left: 10px;
+
+}
+
+.list{
+
+
+    background-color: #2b1b0c;
+
+}
+
+#header{
+
+    margin-bottom: 20px;
+    text-decoration: underline;
+
+
+}
+
+
+.todayDate{
+
+    font-style: italic;
+    font-size: 15px;
+
+}
+
+#poems{
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+
+
+
+.poemSection{
+    background-color: #D8C7B4;
+    margin: 10px 10px 10px 10px;
+    color: black;
+}
+
+#viewOneContent{
+
+    background-color: #D8C7B4;
+    margin: 10px 10px 30px 10px;
+    padding: 10px 0 10px 40px;
+    color: black;
+
+
+    -webkit-box-shadow: 3px 3px 5px 6px #000000;
+    border: 1px solid black;
+}
+
+
+label.error{
+
+    color: #F00;
+    font-weight: bold;
+
+}
+
+input.error,
+select.error,
+textarea.error{
+
+    border: 1px solid red;
+
+}
+
+
+

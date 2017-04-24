@@ -1,26 +1,35 @@
 <!--
-Mobile Web App Prototype
-Created by: David Wagner 1/31/2017
-Finished: 2/7/2017
-PROG3180-Sec2 Assignment1
+Feedback App
+Created by: David Wagner 3/21/2017
+Finished: David Wagner 4/10/2017
+PROG3180-Sec2 Assignment3
 -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>DW Feedback A1</title>
+    <title>DW Feedback A3</title>
     <!--        Meta data   -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--        JQuery      -->
     <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.validate.js"></script>
+
     <!--        JQeuery Mobile      -->
     <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!-- Javascript files -->
+    <script src="js/DWdatabase.js"></script>
+    <script src="js/DWfacade.js"></script>
+    <script src="js/DWfeedbackDAL.js"></script>
+    <script src="js/DWglobal.js"></script>
+    <script src="js/DWutil.js"></script>
 
     <!--        Style sheet         -->
-    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="js/lib/custom/themes/my-custom-theme.css" />
+    <link rel="stylesheet" href="css/DWmystyle.css" />
     <link rel="shortcut icon" href="images/DW-icon.png">
 
 
@@ -29,81 +38,73 @@ PROG3180-Sec2 Assignment1
 <!--page 1 HOMEPAGE-->
 <div id="DWHomePage" data-role="page" >
     <header data-role="header" data-position="fixed" >
-        <div data-role="header" data-theme="b"><h1>A1 Feedback</h1></div>
+        <div data-role="header" data-theme="b"><h1>Poetry Journal</h1></div>
         <div data-role="navbar">
             <ul >
-                <li><a href="#D WHomePage"  data-icon="home"  class="ui-btn-active ui-state-persist">Home</a></li>
-                <li><a href="#DWAddFeedBackPage" data-icon="plus" >Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid">Reviews</a></li>
+                <li><a href="#DWHomePage"  data-icon="home"  class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid">Poems</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
+
             </ul>
         </div>
     </header>
     <section data-role="content">
-        <h1>David Wagner's Feedback A1 App</h1>
-        <p>Welcome to David Wagner's Feedback A1 app. A prototype designed for a mobile programming class.
-        This is the first iteration of the app to keep track of different places you visited along with your
-        reviews.</p>
-        <img src="images/DW-icon.png" alt="DW App Icon">
-        <p>Contact me if you have any suggestions!</p>
+        <h1>Poetry Journal</h1>
+        <p>Welcome to your Poetry Journal</p>
+        <img src="images/DW-icon.png" alt="DW App Icon" id ="icon" width="200px" height="200px">
 
-        <!--Phone-->
-        <div data-role="collapsible" data-collapsed="true" class="smallerFont">
-            <h3>Call: 226-201-5555</h3>
-            <a href="tel:226-201-5555">226-201-5555</a>
-        </div>
+        <input type="button" name="DWToAuthors" id="DWToAuthors" value="Add/View Authors" data-theme="a" data-icon="edit" data-inline="true" >
 
-        <!--email-->
-
-        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
-            <h3>dwagner6506@conestogac.on.ca</h3>
-            <a href="mailto:dwagner6506@conestogac.on.ca?Subject=Hello%20David" target="_top">Send Mail</a>
-        </div>
-
-        <!--Website-->
-        <p>Website:</p>
-        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
-            <h3>Conestoga College</h3>
-            <a href="https://www.conestogac.on.ca/">Conestogac.on.ca</a>
-        </div>
     </section>
     <footer data-role="footer" data-position="fixed" data-theme="b" >
         <h4>&copy;2017 David Wagner</h4>
     </footer>
 </div>
 
-<!--page 2 FEEDBACK-->
-<div id="DWAddFeedBackPage" data-role="page">
+<!--page 2 Add Poem-->
+<div id="DWWritePoem" data-role="page">
     <header data-role="header" data-position="fixed" >
-        <div data-role="header" data-theme="b"><h1>Add Feedback</h1></div>
+        <div data-role="header" data-theme="b"><h1>Add Poetry</h1></div>
         <div data-role="navbar" >
-            <ul>
-                <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
-                <li><a href="#DWAddFeedBackPage" data-icon="plus" class="ui-btn-active ui-state-persist">Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid">Reviews</a></li>
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" class="ui-btn-active ui-state-persist" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid">Poems</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
             </ul>
         </div>
     </header>
-    <section data-role="content">
+    <section data-role="content"  data-theme="b" >
+
+        <h1 id ="addPoemTitle">Add A Poem</h1>
+
+        <p class ="todayDate" id ="date"></p>
 
 
-        <form id="DWAddForm" >
-
-            <label for="DWBusName">Business Name:</label>
-            <input type="text" name="BusName" id="DWBusName" value="">
-
-            <label for="DWRevEmail">Reviewer Email:</label>
-            <input type="text" name="RevEmail" id="DWRevEmail" value="">
-
-            <label for="DWRevComment">Reviewer Comments:</label>
-            <textarea name="RevComment" id="DWRevComment"></textarea>
-
-            <label for="DWOverallRating">Overall Rating (1-100):</label>
-            <input type="number" name="OveralRating" id="DWOverallRating" value="">
+        <form id="DWAddPoemForm" action="#DWViewPoems">
 
 
-            <input type="submit" name="Save" id="DWSave" value="Save" data-theme="d" >
+
+            <label for ="title">Title:
+            <input type="text" name="title" id ="title" onchange="changeTitlePoemAdd()">
+            </label>
+
+            <label for="DWAuthor">Author:
+                <select name="DWAuthor" id="DWAuthor" data-theme="a">
+
+                </select>
+            </label>
+
+            <label for="content">Poem:
+            <textarea rows="10" name="content"  id="content" onkeypress="DWFormatContent()"></textarea>
+            </label>
+
+
+
+            <input type="button" name="Save" id="DWSave" value="Save" data-theme="a" data-icon="edit" data-inline="true" >
 
 
         </form>
@@ -116,63 +117,24 @@ PROG3180-Sec2 Assignment1
     </footer>
 </div>
 
-<!--page 3 VIEW FEEDBACK PAGE-->
-<div id="DWViewFeedbackPage" data-role="page">
+<!--page 3 VIEW POETRY PAGE-->
+<div id="DWViewPoems" data-role="page">
     <header data-role="header" data-position="fixed"  >
-        <div data-role="header" data-theme="b"><h1>View Feedback</h1></div>
+        <div data-role="header" data-theme="b"><h1>View Poetry</h1></div>
         <div data-role="navbar" >
-            <ul>
-                <li><a href="#DWHomePage" data-icon="home">Home</a></li>
-                <li><a href="#DWAddFeedBackPage" data-icon="plus">Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid"  class="ui-btn-active ui-state-persist">Reviews</a></li>
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid" class="ui-btn-active ui-state-persist">Poems</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
             </ul>
         </div>
     </header>
     <section data-role="content">
-        <ul data-role="listview" >
-
-            <a href="#DWEditFeedbackPage" data-role = "button">
-
-                <li>
-                    <h1 class="smallFont">Business Name:  <span class="title">420st Burger</span></h1>
-                    <p>
-                        <span class="smallFont">Reviewer Email:</span>
-
-                        <span class = "smallerFont"> cheechnchong@gmail.com</span>
-                    </p>
-                    <p>
-                        <span class="smallFont">Comments:</span>
-                        <span class = "smallerFont">Great burgers! Love it here</span>
-                    </p>
-                    <p>
-                        <span class="smallFont">Overall Rating:</span>
-                        <span class = "smallerFont">95%</span>
-                    </p>
-
-                </li>
-            </a>
-
-            <a href="#DWEditFeedbackPage" data-role = "button">
-                <li>
-
-                    <h1 class="smallFont">Business Name:  <span class="title"> Java Hut</span></h1>
-                    <p>
-                        <span class="smallFont">Reviewer Email:</span>
-
-                        <span class = "smallerFont"> billgates@microsoft.com</span>
-                    </p>
-                    <p>
-                        <span class="smallFont">Comments:</span>
-                        <span class = "smallerFont">worst..coffee...ever :/</span>
-                    </p>
-                    <p>
-                        <span class="smallFont">Overall Rating:</span>
-                        <span class = "smallerFont">10%</span>
-                    </p>
-                </li>
-            </a>
-
+             <h1 id="header">Your Poetry</h1>
+        <div id="emptyMessage"></div>
+        <ul data-role="listview" id = "poems">
 
 
         </ul>
@@ -182,41 +144,78 @@ PROG3180-Sec2 Assignment1
     </footer>
 </div>
 
-<!--page 4 EDIT FEEDBACK-->
-<div id="DWEditFeedbackPage" data-role="page">
+<!--page 3.5 VIEW INDIVIDUAL POEM -->
+<div id="DWViewOnePoem" data-role="page">
     <header data-role="header" data-position="fixed" >
-        <div data-role="header" data-theme="b"><h1>Modify Feedback</h1></div>
+        <div data-role="header" data-theme="b"><h1>View Poem</h1></div>
         <div data-role="navbar" >
-            <ul>
-                <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
-                <li><a href="#DWAddFeedBackPage" data-icon="plus">Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid" class="ui-btn-active ui-state-persist">Edit Review</a></li>
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid" class="ui-btn-active ui-state-persist">Poems</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
             </ul>
         </div>
     </header>
     <section data-role="content">
-        <form id="DWEditFeedbackForm" >
+        <h1 class="poemName"></h1>
+        <p id = "authorNameView"></p>
+        <p id = "poemDate"></p>
+        <div id ="viewOneContent">
+        <p id ="poemContent"></p>
+        </div>
+        <fieldset data-role="controlgroup" data-type="horizontal" >
+            <input type = "button" onclick ="DWDeletePoem()" value="Delete" data-theme="a"  id="DWDelete"/>
+            <input type = "button" onclick ="DWSetUpEdit()" value="Edit" data-theme="a"   id="DWEditButton"/>
 
-            <label for="DWBusNameEdit">Business Name:</label>
-            <input type="text" name="BusName" id="DWBusNameEdit" value="">
-
-            <label for="DWRevEmailEdit">Reviewer Email:</label>
-            <input type="text" name="RevEmail" id="DWRevEmailEdit" value="">
-
-            <label for="DWRevCommentEdit">Reviewer Comments:</label>
-            <textarea name="RevComment" id="DWRevCommentEdit"></textarea>
-
-            <label for="DWOverallRatingEdit">Overall Rating (1-100):</label>
-            <input type="number" name="OveralRating" id="DWOverallRatingEdit" value="">
+        </fieldset>
 
 
-            <fieldset data-role="controlgroup" data-type="horizontal" >
-                <input type = "reset" value="Cancel" data-theme="c"  id="DWCancel"/>
-                <input type = "button" value="Delete" data-theme="e"  id="DWDelete"/>
-                <input type = "submit"  value="Update" data-theme="d"   id="DWUpdate"/>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <h4>&copy;2017 David Wagner</h4>
+    </footer>
+</div>
 
-            </fieldset>
+<!--page 4 EDIT POETRY-->
+<div id="DWEditPoems" data-role="page">
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>Edit Poem</h1></div>
+        <div data-role="navbar" >
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid" class="ui-btn-active ui-state-persist">Poems</a></li>
+                <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1 id ="titleEditHeader"><span class="poemName"></span></h1>
+        <p><span class ="todayDate" id ="dateEdit"></span></p>
+        <input type = "button" onclick ="DWGetDate()" value="Refresh Date" data-theme="a"   id="DWRefreshDate"/>
+        <form id="DWEditPoem" >
+
+            <label for="DWAuthorEdit">Author:
+                <select name="DWAuthorEdit" id="DWAuthorEdit">
+
+                </select>
+            </label>
+
+            <label for ="title">Title:
+                <input type="text" name="title" id ="titleEdit" onchange="changeTitlePoemEdit()">
+            </label>
+
+            <label for="content">Poem:
+                <textarea rows="10" name="content" onkeypress="DWFormatContentEdit()" id="contentEdit"></textarea>
+            </label>
+
+
+
+            <input type="button" name="Save" id="DWSaveEdit" value="Save" data-theme="a" data-icon="edit" data-inline="true" >
+
 
 
         </form>
@@ -225,6 +224,7 @@ PROG3180-Sec2 Assignment1
         <h4>&copy;2017 David Wagner</h4>
     </footer>
 </div>
+
 
 
 <!--page 5 SETTINGS PAGE-->
@@ -232,21 +232,20 @@ PROG3180-Sec2 Assignment1
     <header data-role="header" data-position="fixed"  >
         <div data-role="header" data-theme="b"><h1>Settings</h1></div>
         <div data-role="navbar" >
-            <ul>
-                <li><a href="#DWHomePage" data-icon="home" >Home</a></li>
-                <li><a href="#DWAddFeedBackPage" data-icon="plus">Add</a></li>
-                <li><a href="#DWViewFeedbackPage" data-icon="grid">Reviews</a></li>
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid">Poems</a></li>
                 <li><a href="#DWSettingsPage" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info">About Dev</a></li>
             </ul>
         </div>
     </header>
     <section data-role="content">
-        <form id="DWSettingsForm">
+        <form id="DWSettingsForm" >
 
-            <label for="DWDefaultRevEmail">Default Reviewer Email:</label>
-            <input type="text" name="DefaultEmail" id="DWDefaultRevEmail" value="">
-            <input type = "submit"  value="Save Defaults" data-theme="d"   id="DWSaveDefault"/>
-            <input type = "button" value="Delete" data-theme="b"  id="DWClearDB"/>
+
+            <input type = "button" value="Clear Database" data-theme="b"  id="DWClearDB"/>
 
 
 
@@ -257,6 +256,98 @@ PROG3180-Sec2 Assignment1
         <h4>&copy;2017 David Wagner</h4>
     </footer>
 </div>
+
+<!--page 6 About Page-->
+<div id="DWAboutPage" data-role="page">
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>About the Dev</h1></div>
+        <div data-role="navbar" >
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid">Poems</a></li>
+                <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info" class="ui-btn-active ui-state-persist">About Dev</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>About the Developer</h1>
+        <h2>David Wagner</h2>
+        <h3>Conestoga College - Computer Programmer/Analyst</h3>
+        <p>Contact me if you have any suggestions!</p>
+        <img src="images/david.jpg" alt="David Wagner" id ="devPic" width="200px" height="200px">
+
+
+        <!--email-->
+
+        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
+            <h3>Email: dwagner6506@conestogac.on.ca</h3>
+            <a href="mailto:dwagner6506@conestogac.on.ca?Subject=Hello%20David" target="_top">Send Mail</a>
+        </div>
+
+        <!--Website-->
+
+        <div data-role="collapsible" data-collapsed="true"  class="smallerFont">
+            <h3>Website: davidwagner.co</h3>
+            <a href="https://davidwagner.co/">davidwagner.co</a>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <h4>&copy;2017 David Wagner</h4>
+    </footer>
+</div>
+
+<!--page 7 Author Page-->
+<div id="DWAuthorPage" data-role="page">
+    <header data-role="header" data-position="fixed" >
+        <div data-role="header" data-theme="b"><h1>Authors</h1></div>
+        <div data-role="navbar" >
+            <ul >
+                <li><a href="#DWHomePage"  data-icon="home"  >Home</a></li>
+                <li><a href="#DWWritePoem"  data-icon="plus" >Write Poem</a></li>
+                <li><a href="#DWViewPoems"   data-icon="grid">Poems</a></li>
+                <li><a href="#DWSettingsPage" data-icon="gear">Settings</a></li>
+                <li><a href="#DWAboutPage"   data-icon="info" >About Dev</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <div id="currentAuthors"></div>
+
+
+        <div id ="createAuthor">
+                <h2>Create an Author</h2>
+
+                <form id="createAuthorForm">
+
+                    <label for ="authorName">Author's Name:
+                        <input type="text" name="authorName" id ="authorName">
+                    </label>
+
+                    <label for="isDefault">Default Author?
+                        <input type="checkbox" name="isDefault" id ="isDefault" data-theme="a">
+                    </label>
+
+
+
+
+
+                    <input type="button" name="Save" id="DWSaveAuth" value="Create" data-theme="a"  data-inline="true" >
+
+                </form>
+
+
+
+
+
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <h4>&copy;2017 David Wagner</h4>
+    </footer>
+</div>
+
 
 </body>
 </html>

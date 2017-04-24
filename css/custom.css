@@ -218,7 +218,7 @@ html .ui-alt-icon .ui-radio-off:after {
 }
 /* Loader */
 .ui-icon-loading {
-	background: url("images/ajax-loader.gif");
+
 	background-size: 2.875em 2.875em;
 }
 /* Swatches */
@@ -1101,6 +1101,6 @@ button[disabled],
 
 }
 
-li{
+li {
 	text-align: left;
 }
